@@ -1,0 +1,27 @@
+<% provide(:title, 'Events') %>
+<h1>Events</h1>
+
+
+<div class = "container">
+	<% count = 1 %>
+	<% while @events.count >= count %>
+		<div class = "row">
+			<% (0..2).each do |index| %>
+				<%event = Event.find(count)%>
+				<div class = "span4">
+					<div class = "event" >
+						<div class = "event-pic"> <img src = <%=event.picture%> ></div>
+						<div class = "description">
+							<%= link_to event.name, event %>
+							<br>
+							Start Time: <%=event.start_time.strftime("%m-%d-%Y, %I:%M%p")%><br>
+							End Time: <%=event.end_time.strftime("%m-%d-%Y, %I:%M%p")%>
+						</div>
+						
+				    </div>
+			    </div>
+			    <%count += 1%>
+			<%end%>
+		</div>	
+	<%end%>			
+</div>

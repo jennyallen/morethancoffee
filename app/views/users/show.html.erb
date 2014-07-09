@@ -1,0 +1,28 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %> 
+      </h1>
+      Age: <%= @user.age %> <br>
+      Looking for: <%= @user.lookingfor %> <br>
+      Romantic preference: <%= @user.genderpref %><br>
+      Events that <%=@user.name %> is attending: 
+      				<ul>
+      				<% @user.events.each do |event| %>
+    				<li> <%= link_to event.name, event_path(event.id) %> </li>
+    				<% end %>
+    				</ul>
+    <%if @user == current_user%>
+    	<%= link_to "Edit Profile", edit_user_path(current_user) %>
+        &nbsp | &nbsp
+    <% end %>
+    	
+    <%= link_to " Events", events_path %>
+  </aside>
+    </section>
+    
+   
+</div>

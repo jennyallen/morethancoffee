@@ -1,0 +1,15 @@
+<div class="span8">
+  
+      <ol class="users">
+      	<%= @event.name %>
+      	(<%= @users.count %> are going)
+       	<%= render @users %>
+      </ol>
+
+      <div class = "span8">
+      	<%=render 'attendance_form' %>
+      </div>
+
+ 	 
+ 
+</div>
